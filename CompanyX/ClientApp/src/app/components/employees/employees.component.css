@@ -1,0 +1,8 @@
+﻿.crud-btn{
+    height: 100%;
+}
+
+.crud-btns{
+    display: flex;
+    gap: 12px;
+}

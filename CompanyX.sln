@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyX", "CompanyX\CompanyX.csproj", "{2F6A8588-63C8-4245-A406-C72FD9A173C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyX.SqlServer", "CompanyX.SqlServer\CompanyX.SqlServer.csproj", "{EAC05E96-3278-48BD-9589-74BD1D3BA98B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyX.Domain", "CompanyX.Domain\CompanyX.Domain.csproj", "{3CC76B2B-FB11-4CBA-8CF9-58E37BA875FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{2F6A8588-63C8-4245-A406-C72FD9A173C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F6A8588-63C8-4245-A406-C72FD9A173C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F6A8588-63C8-4245-A406-C72FD9A173C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC05E96-3278-48BD-9589-74BD1D3BA98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC05E96-3278-48BD-9589-74BD1D3BA98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC05E96-3278-48BD-9589-74BD1D3BA98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC05E96-3278-48BD-9589-74BD1D3BA98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC76B2B-FB11-4CBA-8CF9-58E37BA875FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC76B2B-FB11-4CBA-8CF9-58E37BA875FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC76B2B-FB11-4CBA-8CF9-58E37BA875FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC76B2B-FB11-4CBA-8CF9-58E37BA875FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
