@@ -1,4 +1,11 @@
 <h1>Employees</h1>
+
+<app-modal *ngIf="modalService.isVisible$ | async">
+    <app-create-employee></app-create-employee>
+</app-modal>
+
+<button (click)="modalService.open()">open</button>
+
 <table class="table table-bordered">
     <thead>
         <th>Employee Id</th>

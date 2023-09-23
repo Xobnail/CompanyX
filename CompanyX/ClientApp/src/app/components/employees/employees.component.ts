@@ -4,6 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import { map } from 'rxjs/operators';
 import {EmployeesService} from "../../services/employees.service";
+import {ModalService} from "../../services/modal.service";
+
 @Component({
     selector: 'app-employees',
     templateUrl: './employees.component.html',
@@ -12,7 +14,10 @@ import {EmployeesService} from "../../services/employees.service";
 export class EmployeesComponent {
     employees: Employee[] = []
     
-    constructor(private employeesService: EmployeesService) {}
+    constructor(
+        private employeesService: EmployeesService,
+        public modalService: ModalService
+    ) {}
     
     ngOnInit(): void {
         this.employeesService.getEmployees()
@@ -28,4 +33,5 @@ export class EmployeesComponent {
                         el.salary)))
             })
     }
+    
 }
