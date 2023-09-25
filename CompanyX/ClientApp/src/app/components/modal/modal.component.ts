@@ -7,6 +7,8 @@ import {ModalService} from "../../services/modal.service";
 })
 export class ModalComponent implements OnInit {
   
+  title: string
+  
   constructor(public modalService: ModalService) {
   }
   

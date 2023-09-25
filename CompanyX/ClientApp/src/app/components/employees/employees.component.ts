@@ -22,7 +22,6 @@ export class EmployeesComponent {
     ngOnInit(): void {
         this.employeesService.getEmployees()
             .subscribe((result: Employee[]) => {
-                console.log(typeof(this.employees[0]))
                 result.forEach(el=>this.employees.push(
                     new Employee(
                         el.employeeId,
@@ -33,5 +32,16 @@ export class EmployeesComponent {
                         el.salary)))
             })
     }
-    
+
+    openCreateModal() {
+        this.modalService.showCreateContainer();
+    }
+
+    openEditModal() {
+        this.modalService.showEditContainer();
+    }
+
+    openDeleteModal() {
+        this.modalService.showDeleteContainer();
+    }
 }

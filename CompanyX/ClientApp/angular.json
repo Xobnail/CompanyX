@@ -147,5 +147,10 @@
       }
     }
   },
-  "defaultProject": "CompanyX"
+  "defaultProject": "CompanyX",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
+  }
 }

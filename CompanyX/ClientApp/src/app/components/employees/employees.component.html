@@ -1,10 +1,14 @@
 <h1>Employees</h1>
 
 <app-modal *ngIf="modalService.isVisible$ | async">
-    <app-create-employee></app-create-employee>
+    <app-create-employee *ngIf="modalService.activeContainer === 'create'"></app-create-employee>
+    <app-edit-employee *ngIf="modalService.activeContainer === 'edit'"></app-edit-employee>
+    <app-delete-employee *ngIf="modalService.activeContainer === 'delete'"></app-delete-employee>
 </app-modal>
 
-<button (click)="modalService.open()">open</button>
+<button (click)="modalService.showCreateContainer()">open</button>
+<button (click)="modalService.showDeleteContainer()">open</button>
+<button (click)="modalService.showEditContainer()">open</button>
 
 <table class="table table-bordered">
     <thead>

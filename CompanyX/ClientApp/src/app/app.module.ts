@@ -14,6 +14,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDialogModule} from "@angular/material/dialog";
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
     HomeComponent,
     EmployeesComponent,
     ModalComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    EditEmployeeComponent,
+    DeleteEmployeeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
