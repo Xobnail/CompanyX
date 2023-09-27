@@ -3,7 +3,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 import { Guid } from 'guid-typescript';
 import {EmployeesService} from "../../services/employees.service";
 import {ModalService} from "../../services/modal.service";
-import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
@@ -26,7 +25,6 @@ export class CreateEmployeeComponent implements OnInit {
 
   create() {
     this.employeesService.createEmployee(this.form.value).subscribe(() => {
-      console.log("subscribe")
       this.modalService.close();
     })
   }

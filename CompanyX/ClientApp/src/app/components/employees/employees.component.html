@@ -8,7 +8,6 @@
 
 <table class="table table-bordered">
     <thead>
-        <th>Employee Id</th>
         <th>Department</th>
         <th>Name</th>
         <th>Date of birth</th>
@@ -18,11 +17,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let employee of this.employeesService.employees">
-            <td>{{employee.employeeId}}</td>
             <td>{{employee.department}}</td>
             <td>{{employee.name}}</td>
-            <td>{{employee.dateOfBirth}}</td>
-            <td>{{employee.hireDate}}</td>
+            <td>{{this.employeesService.toReadableDate(employee.dateOfBirth.toString())}}</td>
+            <td>{{this.employeesService.toReadableDate(employee.hireDate.toString())}}</td>
             <td>{{employee.salary}}</td>
             <td style="vertical-align: middle;">
                 <div class="crud-btns">

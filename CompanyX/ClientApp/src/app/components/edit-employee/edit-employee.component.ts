@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ModalService} from "../../services/modal.service";
 import {EmployeesService} from "../../services/employees.service";
-import {Employee} from "../../models/employee.model";
-import {EmployeesComponent} from "../employees/employees.component";
 
 @Component({
   selector: 'app-edit-employee',

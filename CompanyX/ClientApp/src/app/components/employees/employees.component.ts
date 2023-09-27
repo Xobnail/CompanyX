@@ -1,8 +1,5 @@
 import {Component} from '@angular/core'
 import {Employee} from "../../models/employee.model";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import { map } from 'rxjs/operators';
 import {EmployeesService} from "../../services/employees.service";
 import {ModalService} from "../../services/modal.service";
 
@@ -12,7 +9,6 @@ import {ModalService} from "../../services/modal.service";
     styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent {
-    //employees: Employee[] = []
     
     constructor(
         public employeesService: EmployeesService,
@@ -25,17 +21,7 @@ export class EmployeesComponent {
 
     public getEmployees() {
         this.employeesService.getEmployees()
-            .subscribe((result: Employee[]) => {
-                // console.log(this.employeesService.employees)
-                // result.forEach(el=>this.employees.push(
-                //     new Employee(
-                //         el.employeeId,
-                //         el.department,
-                //         el.name,
-                //         el.dateOfBirth,
-                //         el.hireDate,
-                //         el.salary)))
-            })
+            .subscribe((result: Employee[]) => {})
     }
     
     openCreateEmployee() {

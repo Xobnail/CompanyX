@@ -3,9 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Employee} from "../models/employee.model";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
-import {FormGroup} from "@angular/forms";
 import {tap} from "rxjs/operators";
-import {EmployeesComponent} from "../components/employees/employees.component";
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +48,15 @@ export class EmployeesService {
           this.employees.splice(this.employees.findIndex(emp => emp.employeeId === employeeToDelete.employeeId), 1)
         })
     )
+  }
+  
+  public toReadableDate(dateTimeOffset: string) : string {
+    let date = new Date(dateTimeOffset);
+    
+    let day = date.getDate().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+    let month = date.getMonth().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+    let year = date.getFullYear().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+    
+    return day + "." + month + "." + year
   }
 }

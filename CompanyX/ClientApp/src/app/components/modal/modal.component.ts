@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ModalService} from "../../services/modal.service";
 @Component({
   selector: 'app-modal',
@@ -6,9 +6,7 @@ import {ModalService} from "../../services/modal.service";
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-  
-  title: string
-  
+    
   constructor(public modalService: ModalService) {
   }
   
