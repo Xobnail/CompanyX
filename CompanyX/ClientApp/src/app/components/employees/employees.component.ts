@@ -12,36 +12,41 @@ import {ModalService} from "../../services/modal.service";
     styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent {
-    employees: Employee[] = []
+    //employees: Employee[] = []
     
     constructor(
-        private employeesService: EmployeesService,
+        public employeesService: EmployeesService,
         public modalService: ModalService
     ) {}
     
     ngOnInit(): void {
+        this.getEmployees();
+    }
+
+    public getEmployees() {
         this.employeesService.getEmployees()
             .subscribe((result: Employee[]) => {
-                result.forEach(el=>this.employees.push(
-                    new Employee(
-                        el.employeeId,
-                        el.department,
-                        el.name,
-                        el.dateOfBirth,
-                        el.hireDate,
-                        el.salary)))
+                // console.log(this.employeesService.employees)
+                // result.forEach(el=>this.employees.push(
+                //     new Employee(
+                //         el.employeeId,
+                //         el.department,
+                //         el.name,
+                //         el.dateOfBirth,
+                //         el.hireDate,
+                //         el.salary)))
             })
     }
-
-    openCreateModal() {
-        this.modalService.showCreateContainer();
+    
+    openCreateEmployee() {
+        this.modalService.showCreateEmployee();
     }
 
-    openEditModal() {
-        this.modalService.showEditContainer();
+    openEditEmployee(employee: Employee) {
+        this.modalService.showEditEmployee(employee);
     }
 
-    openDeleteModal() {
-        this.modalService.showDeleteContainer();
+    openDeleteEmployee(employee: Employee) {
+        this.modalService.showDeleteEmployee(employee);
     }
 }

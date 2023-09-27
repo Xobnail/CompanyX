@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ModalService} from "../../services/modal.service";
+import {EmployeesService} from "../../services/employees.service";
 
 @Component({
   selector: 'app-delete-employee',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteEmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public modalService: ModalService,
+              private employeesService: EmployeesService) { }
 
+  delete() {
+    this.employeesService.deleteEmployee(this.modalService.employeeToDelete).subscribe(() => {
+      this.modalService.close();
+    })
+  }
+  
   ngOnInit() {
   }
-
 }

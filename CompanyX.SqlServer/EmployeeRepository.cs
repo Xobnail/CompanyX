@@ -19,12 +19,11 @@ namespace CompanyX.SqlServer
             return _dbContext.Employees.ToList();
         }
         
-        public IEnumerable<Employee> CreateEmployee(Employee employee)
+        public bool CreateEmployee(Employee employee)
         {
             _dbContext.Employees.Add(employee);
-            _dbContext.SaveChanges();
-            
-            return _dbContext.Employees;
+
+            return _dbContext.SaveChanges() > 0;
         }
 
         public bool EditEmployee(Employee employee)
@@ -42,9 +41,7 @@ namespace CompanyX.SqlServer
             employeeToEdit.HireDate = employee.HireDate;
             employeeToEdit.Salary = employee.Salary;
 
-            _dbContext.SaveChanges();
-            
-            return true;
+            return _dbContext.SaveChanges() > 0;
         }
         
         public bool DeleteEmployee(Guid id)
@@ -57,9 +54,8 @@ namespace CompanyX.SqlServer
             }
 
             _dbContext.Employees.Remove(employeeToDelete);
-            _dbContext.SaveChanges();
 
-            return true;
+            return _dbContext.SaveChanges() > 0;
         }
     }
 }

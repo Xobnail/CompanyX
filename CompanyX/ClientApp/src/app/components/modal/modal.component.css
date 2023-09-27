@@ -1,5 +1,5 @@
 .mod-overlay {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     bottom: 0;
     right: 0;
@@ -7,7 +7,7 @@
     top: 0;
 }
 
-.mod-content {
+.modal-content {
     background: #ffffff;
     border-radius: 0.5em;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -16,7 +16,7 @@
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 30em;
+    width: 35rem;
     text-align: left;
     max-height: 90vh;
     display: flex;

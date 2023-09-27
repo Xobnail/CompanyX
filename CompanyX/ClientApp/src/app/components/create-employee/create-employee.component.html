@@ -1,9 +1,28 @@
-<div>
-    <form>
-        <input type="text"
-               placeholder="Employee name">
+<form [formGroup]="form" (ngSubmit)="create()">
+    <div class="form-group">
+        <label>Employee name</label>
+        <input type="text" class="form-control" placeholder="Employee name" formControlName="name">
+    </div>
 
-        <button type="submit">Create</button>
-    </form>
+    <div class="form-group">
+        <label>Department</label>
+        <input type="text" class="form-control" placeholder="Department" formControlName="department">
+    </div>
 
-</div>
+    <div class="form-group">
+        <label>Date of birth</label>
+        <input type="text" class="form-control" placeholder="Date of birth" formControlName="dateOfBirth">
+    </div>
+
+    <div class="form-group">
+        <label>Hire date</label>
+        <input type="text" class="form-control" placeholder="Hire date" formControlName="hireDate">
+    </div>
+
+    <div class="form-group">
+        <label>Salary</label>
+        <input type="number" class="form-control" placeholder="Salary" formControlName="salary">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

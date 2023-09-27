@@ -7,7 +7,7 @@ namespace CompanyX.Domain.Abstractions
     public interface IEmployeeRepository
     {
         public IEnumerable<Employee> GetAll();
-        public IEnumerable<Employee> CreateEmployee(Employee employee);
+        public bool CreateEmployee(Employee employee);
         public bool EditEmployee(Employee employee);
         
         public bool DeleteEmployee(Guid id);

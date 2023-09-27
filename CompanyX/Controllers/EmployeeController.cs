@@ -32,29 +32,43 @@ namespace CompanyX.Controllers
 
         [HttpPost]
         [Route("create-employee")]
-        public ActionResult<IEnumerable<Employee>> CreateEmployee(Employee employee)
-        {
-            return Ok(_employeeRepository.CreateEmployee(employee));
-        }
-
-        [HttpPut]
-        [Route("edit-employee")]
-        public ActionResult EditEmployee(Employee employee)
+        public ActionResult<Employee> CreateEmployee(Employee employee)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (!_employeeRepository.EditEmployee(employee))
+            var isCreated = _employeeRepository.CreateEmployee(employee);
+
+            if (isCreated)
+            {
+                return Ok(employee);
+            }
+            
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("edit-employee")]
+        public ActionResult<Employee> EditEmployee(Employee employee)
+        {
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            return Ok();
+            var isEdited = _employeeRepository.EditEmployee(employee);
+            
+            if (isEdited)
+            {
+                return Ok(employee);
+            }
+
+            return BadRequest();
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("delete-employee")]
         public ActionResult DeleteEmployee(Employee employee)
         {
@@ -62,13 +76,15 @@ namespace CompanyX.Controllers
             {
                 return BadRequest();
             }
+
+            var isDeleted = _employeeRepository.DeleteEmployee(employee.EmployeeId);
             
-            if (!_employeeRepository.DeleteEmployee(employee.EmployeeId))
+            if (isDeleted)
             {
-                return BadRequest();
+                return Ok(employee);
             }
 
-            return Ok();
+            return BadRequest();
         }
     }
 }

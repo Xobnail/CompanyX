@@ -1,4 +1,10 @@
-<form>
-    <button type="submit">Delete</button>
-    <button>Cancel</button>
-</form>
+<div>
+    <div>
+        <h5>Are you sure?</h5>
+    </div>
+    <div class="delete-btns">
+        <button type="submit" class="btn btn-danger" (click)="delete()">Delete</button>
+        <button class="btn btn-secondary" (click)="modalService.close()">Cancel</button>
+    </div>
+</div>
+    
