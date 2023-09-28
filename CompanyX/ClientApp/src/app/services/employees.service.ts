@@ -10,7 +10,8 @@ import {tap} from "rxjs/operators";
 })
 export class EmployeesService {
 
-  employees: Employee[] = []
+  initialData: Array<Employee> = [];
+  employees: Array<Employee> = [];
   
   constructor(private http: HttpClient) { }
   
@@ -18,7 +19,7 @@ export class EmployeesService {
     let employeesEndpointUrl = "employee/employees";
     
     return this.http.get<Employee[]>(environment.apiURL + employeesEndpointUrl).pipe(
-        tap(employees => this.employees = employees)
+        tap(employees => this.initialData = employees)
     )
   }
   
@@ -27,7 +28,7 @@ export class EmployeesService {
     
     return this.http.post<Employee>(environment.apiURL + editEmployeeEndpointUrl, employeeToEdit).pipe(
         tap(employee => {
-          this.employees[this.employees.findIndex(emp => emp.employeeId === employeeToEdit.employeeId)] = employee
+          this.initialData[this.initialData.findIndex(emp => emp.employeeId === employeeToEdit.employeeId)] = employee
         })
     )
   }
@@ -36,7 +37,7 @@ export class EmployeesService {
     let createEmployeeEndpointUrl = "employee/create-employee";
 
     return this.http.post<Employee>(environment.apiURL + createEmployeeEndpointUrl, employeeToCreate).pipe(
-        tap(employee => this.employees.push(employee))
+        tap(employee => this.initialData.push(employee))
     )
   }
   
@@ -45,7 +46,7 @@ export class EmployeesService {
     
     return this.http.post<Employee>(environment.apiURL + deleteEmployeeEndpointUrl, employeeToDelete).pipe(
         tap(() => {
-          this.employees.splice(this.employees.findIndex(emp => emp.employeeId === employeeToDelete.employeeId), 1)
+          this.initialData.splice(this.initialData.findIndex(emp => emp.employeeId === employeeToDelete.employeeId), 1)
         })
     )
   }

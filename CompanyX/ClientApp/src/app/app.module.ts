@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import {ModalComponent} from './components/modal/modal.component';
@@ -16,6 +16,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
+import {SortableHeaderDirective} from "./directives/sortable-header.directive";
+import {EmployeePipe} from "./pipes/employee.pipe";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { DeleteEmployeeComponent } from './components/delete-employee/delete-emp
     ModalComponent,
     CreateEmployeeComponent,
     EditEmployeeComponent,
-    DeleteEmployeeComponent
+    DeleteEmployeeComponent,
+    SortableHeaderDirective,
+    EmployeePipe
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

@@ -14,7 +14,8 @@ export class DeleteEmployeeComponent implements OnInit {
 
   delete() {
     this.employeesService.deleteEmployee(this.modalService.employeeToDelete).subscribe(() => {
-      this.modalService.close();
+      this.modalService.close()
+      this.employeesService.employees = this.employeesService.initialData
     })
   }
   

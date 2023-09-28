@@ -24,7 +24,8 @@ export class EditEmployeeComponent implements OnInit {
   
   save() {
     this.employeesService.editEmployee(this.form.value).subscribe(() => {
-      this.modalService.close();
+      this.modalService.close()
+      this.employeesService.employees = this.employeesService.initialData
     })
   }
   

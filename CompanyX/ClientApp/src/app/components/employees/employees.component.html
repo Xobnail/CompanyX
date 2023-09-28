@@ -8,15 +8,99 @@
 
 <table class="table table-bordered">
     <thead>
-        <th>Department</th>
-        <th>Name</th>
-        <th>Date of birth</th>
-        <th>Hire date</th>
-        <th>Salary</th>
-        <th></th>
+        <tr>
+            <th scope="col" sortable="department" (sort)="onSort($event)" style="cursor: pointer">
+                <div style="display: inline-block">
+                    <svg [style.display]="getSortIconVisibility('department', '')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                        <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708l-2 2Z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('department', 'asc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('department', 'desc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </div>
+                <div style="display: inline-block">Department</div>
+            </th>
+            <th scope="col" sortable="name" (sort)="onSort($event)" style="cursor: pointer">
+                <div style="display: inline-block">
+                    <svg [style.display]="getSortIconVisibility('name', '')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                        <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708l-2 2Z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('name', 'asc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('name', 'desc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </div>
+                <div style="display: inline-block">Name</div>
+            </th>
+            <th scope="col" sortable="dateOfBirth" (sort)="onSort($event)" style="cursor: pointer">
+                <div style="display: inline-block">
+                    <svg [style.display]="getSortIconVisibility('dateOfBirth', '')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                        <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708l-2 2Z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('dateOfBirth', 'asc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('dateOfBirth', 'desc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </div>
+                <div style="display: inline-block">Date of birth</div>
+            </th>
+            <th scope="col" sortable="hireDate" (sort)="onSort($event)" style="cursor: pointer">
+                <div style="display: inline-block">
+                    <svg [style.display]="getSortIconVisibility('hireDate', '')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                        <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708l-2 2Z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('hireDate', 'asc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('hireDate', 'desc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </div>
+                <div style="display: inline-block">Hire date</div>
+            </th>
+            <th scope="col" sortable="salary" (sort)="onSort($event)" style="cursor: pointer">
+                <div style="display: inline-block">
+                    <svg [style.display]="getSortIconVisibility('salary', '')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-vertical" viewBox="0 0 16 16">
+                        <path d="M8.354 14.854a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 13.293V2.707L6.354 3.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 2.707v10.586l1.146-1.147a.5.5 0 0 1 .708.708l-2 2Z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('salary', 'asc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                    </svg>
+                    <svg [style.display]="getSortIconVisibility('salary', 'desc')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </div>
+                <div style="display: inline-block">Salary</div>
+            </th>
+            <th scope="col" sortable="" (sort)="onSort($event)"></th>
+        </tr>
+        <tr>
+            <th>
+                <input [(ngModel)]="filter" placeholder="filter" type="search" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </th>
+            <th>
+                <input placeholder="filter" type="text" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </th>
+            <th>
+                <input placeholder="filter" type="date" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </th>
+            <th>
+                <input placeholder="filter" type="date" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </th>
+            <th>
+                <input placeholder="filter" type="text" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </th>
+        </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of this.employeesService.employees">
+        <tr *ngFor="let employee of this.employeesService.employees | employee:filter">
             <td>{{employee.department}}</td>
             <td>{{employee.name}}</td>
             <td>{{this.employeesService.toReadableDate(employee.dateOfBirth.toString())}}</td>

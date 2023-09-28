@@ -25,7 +25,8 @@ export class CreateEmployeeComponent implements OnInit {
 
   create() {
     this.employeesService.createEmployee(this.form.value).subscribe(() => {
-      this.modalService.close();
+      this.modalService.close()
+      this.employeesService.employees = this.employeesService.initialData
     })
   }
   
