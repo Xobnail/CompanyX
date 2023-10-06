@@ -1,0 +1,19 @@
+Выборка всех сотрудников:
+
+SELECT * FROM [CompanyX].[dbo].[Employees]
+
+Выборка всех сотрудников у кого зп выше 10000:
+
+SELECT * FROM [CompanyX].[dbo].[Employees]
+WHERE Salary > 10000
+
+Удаление сотрудников старше 70 лет:
+
+DELETE FROM [CompanyX].[dbo].[Employees]
+WHERE DATEDIFF(YEAR, DateOfBirth, GETDATE()) > 70
+
+Обновление зп до 15000 тем сотрудникам, у которых она меньше:
+
+UPDATE [CompanyX].[dbo].[Employees]
+SET Salary = 15000
+WHERE Salary < 15000

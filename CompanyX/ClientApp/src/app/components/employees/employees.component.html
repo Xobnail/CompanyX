@@ -6,6 +6,8 @@
     <app-delete-employee *ngIf="modalService.activeContainer === 'delete'"></app-delete-employee>
 </app-modal>
 
+<input [(ngModel)]="filter" placeholder="filter" type="search" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -80,23 +82,6 @@
                 <div style="display: inline-block">Salary</div>
             </th>
             <th scope="col" sortable="" (sort)="onSort($event)"></th>
-        </tr>
-        <tr>
-            <th>
-                <input [(ngModel)]="filter" placeholder="filter" type="search" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            </th>
-            <th>
-                <input placeholder="filter" type="text" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            </th>
-            <th>
-                <input placeholder="filter" type="date" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            </th>
-            <th>
-                <input placeholder="filter" type="date" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            </th>
-            <th>
-                <input placeholder="filter" type="text" class="form-control form-control-sm" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            </th>
         </tr>
     </thead>
     <tbody>
