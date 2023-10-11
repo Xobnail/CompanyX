@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
-
 namespace CompanyX.Controllers
 {
+    /// <summary>
+    /// Contains basic CRUD operations for Employees
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
@@ -23,6 +25,10 @@ namespace CompanyX.Controllers
             _employeeRepository = employeeRepository;
         }
         
+        /// <summary>
+        /// Gets all employees
+        /// </summary>
+        /// <returns>Employees list</returns>
         [HttpGet]
         [Route("employees")]
         public ActionResult<IEnumerable<Employee>> GetEmployees()
@@ -30,6 +36,11 @@ namespace CompanyX.Controllers
             return Ok(_employeeRepository.GetAll());
         }
 
+        /// <summary>
+        /// Creates employee
+        /// </summary>
+        /// <param name="employee">Employee to create</param>
+        /// <returns>Created employee</returns>
         [HttpPost]
         [Route("create-employee")]
         public ActionResult<Employee> CreateEmployee(Employee employee)
@@ -49,6 +60,11 @@ namespace CompanyX.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Edits employee
+        /// </summary>
+        /// <param name="employee">Employee to edit</param>
+        /// <returns>Edited employee</returns>
         [HttpPost]
         [Route("edit-employee")]
         public ActionResult<Employee> EditEmployee(Employee employee)
@@ -68,6 +84,11 @@ namespace CompanyX.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Deletes employee
+        /// </summary>
+        /// <param name="employee">Employee to delete</param>
+        /// <returns>Employee</returns>
         [HttpPost]
         [Route("delete-employee")]
         public ActionResult DeleteEmployee(Employee employee)
